@@ -25,9 +25,16 @@ extern volatile uint32_t BtnPressed; // PA0
 #define LED_GREEN_PIN                    GPIO_PIN_6
 #define LED_BLUE_PIN                     GPIO_PIN_9
 
+#if 0
 #define ONBOARD_LED_PORT				GPIOC
 #define ONBOARD_LED_PIN					GPIO_PIN_13
 #define ONBOARD_LED_GPIO_CLK_ENABLE()   __HAL_RCC_GPIOC_CLK_ENABLE()
+#endif
+
+// for nucleo
+#define ONBOARD_LED_PORT				GPIOA
+#define ONBOARD_LED_PIN					GPIO_PIN_5
+#define ONBOARD_LED_GPIO_CLK_ENABLE()   __HAL_RCC_GPIOA_CLK_ENABLE()
 
 
 void bsp_init(void);

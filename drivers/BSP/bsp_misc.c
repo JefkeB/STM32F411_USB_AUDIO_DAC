@@ -88,6 +88,7 @@ void BSP_LED_Toggle(Led_TypeDef Led){
 void BSP_PB_Init(void) {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
+#if 0
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin : PA0  (KEY button on board) */
@@ -99,17 +100,33 @@ void BSP_PB_Init(void) {
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI0_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(EXTI0_IRQn);
+#endif  
+
+ // nucleo
+  __HAL_RCC_GPIOC_CLK_ENABLE();
+
+  /*Configure GPIO pin : PC13  (KEY button on board) */
+  GPIO_InitStruct.Pin = GPIO_PIN_13;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 }
 
 
 
 uint32_t BSP_PB_GetState(void) {
-  return HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0);
+  //return HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0);
+  return HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
 }
 
 
 void HAL_GPIO_EXTI_Callback(uint16_t gpioPin) {
-	if (gpioPin == GPIO_PIN_0) {
+	//if (gpioPin == GPIO_PIN_0) {
+	if (gpioPin == GPIO_PIN_13) {
 		BtnPressed = 1;
 		}
 	}
