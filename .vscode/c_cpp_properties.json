@@ -1,0 +1,40 @@
+{
+    "configurations": [
+        {
+            "name": "gcc",
+            "includePath": [
+                ".",
+                "${workspaceFolder}",
+                "${workspaceFolder}/inc",
+                "${workspaceFolder}/drivers/",
+                "${workspaceFolder}/drivers/BSP/",
+                "${workspaceFolder}/drivers/CMSIS/Device/ST/STM32F4xx/Include",
+                "${workspaceFolder}/drivers/CMSIS/Include",
+                "${workspaceFolder}/drivers/STM32F4xx_HAL_Driver/Inc",
+                "${workspaceFolder}/drivers/STM32F4xx_HAL_Driver/Inc/Legacy",
+                "${workspaceFolder}/stm32_usb/Class/AUDIO/Inc",
+                "${workspaceFolder}/stm32_usb/Core/Inc"
+                
+            ],
+            "defines": [
+                "STM32F401xC",
+                "USE_HAL_DRIVER",
+                "USE_FULL_ASSERT",
+                "DEBUG_FEEDBACK_ENDPOINT"
+            ],
+            "compilerPath": "${env:GNUARM}/bin/arm-none-eabi-gcc.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-x64",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}",
+                    "${env:GNUARM}"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            }
+        }
+    ],
+    "version": 4
+}

@@ -22,9 +22,10 @@ LDSCRIPT = STM32F401CCUX_FLASH.ld
 # building variables
 ######################################
 # debug build?
-DEBUG = 0
+DEBUG = 1
 # optimization
-OPT = -O2
+#OPT = -O2
+OPT = -O2 -g3
 
 #######################################
 # paths
@@ -205,7 +206,7 @@ clean:
 # Flash binary
 #######################################
 flash:
-	-st-flash --reset write $(BUILD_DIR)/$(TARGET).bin 0x08000000
+	-./tools/st-flash --reset write $(BUILD_DIR)/$(TARGET).bin 0x08000000
 
 #######################################
 # dependencies

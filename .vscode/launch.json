@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [        
+        {
+            "type": "cortex-debug",
+            "cwd": "${workspaceFolder}",
+            "executable": ".\\build\\usb_audio_i2s.elf",
+            "name": "Debug with ST-Util",
+            "request": "launch",
+            "runToEntryPoint": "main",
+            "showDevDebugOutput": "none",
+            "servertype": "stutil",
+            "serverpath": "./tools/st-util.exe"
+        }
+    ]
+}

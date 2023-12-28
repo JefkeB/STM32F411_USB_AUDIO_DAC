@@ -1,0 +1,5 @@
+{
+    "cortex.device":"STM32F401",
+    "cortex.msysPath_bin": "C:\\msys\\1.0\\bin",
+    "C_Cpp.errorSquiggles": "enabled",
+}
